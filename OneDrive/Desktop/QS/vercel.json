@@ -4,6 +4,10 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -12,12 +16,20 @@
       "dest": "/server.js"
     },
     {
+      "src": "/health",
+      "dest": "/server.js"
+    },
+    {
       "src": "/socket.io/(.*)",
       "dest": "/server.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/(.*\\.(js|css|html|png|jpg|jpeg|gif|svg|ico|json))",
       "dest": "/public/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/public/index.html"
     }
   ],
   "env": {
