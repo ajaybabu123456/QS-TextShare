@@ -89,3 +89,4 @@ test-*.txt
 # Temporary files
 *.tmp
 *.temp
+.vercel
